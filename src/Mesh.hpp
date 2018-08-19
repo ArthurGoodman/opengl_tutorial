@@ -9,10 +9,14 @@ namespace OpenGLTutorial {
 class Vertex final
 {
 public: // methods
-    explicit Vertex(const glm::vec3 &pos);
+    explicit Vertex(const glm::vec3 &pos, const glm::vec2 &tex_coord);
+
+    glm::vec3 getPos() const;
+    glm::vec2 getTexCoord() const;
 
 private: // fields
     glm::vec3 m_pos;
+    glm::vec2 m_tex_coord;
 };
 
 class Mesh final
@@ -29,6 +33,7 @@ private: // fields
     enum
     {
         POSITION_VERTEX_BUFFER,
+        TEX_COORD_VERTEX_BUFFER,
 
         NUM_BUFFERS,
     };

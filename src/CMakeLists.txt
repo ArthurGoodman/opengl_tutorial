@@ -5,6 +5,7 @@ add_executable(${OPENGL_APP}
     Display.cpp
     Mesh.cpp
     Shader.cpp
+    Texture.cpp
     Utility.cpp
     )
 
@@ -13,6 +14,7 @@ target_include_directories(${OPENGL_APP}
     )
 
 target_link_libraries(${OPENGL_APP}
+    PRIVATE stb_image
     PRIVATE GLEW::GLEW
     PRIVATE OpenGL::GL
     PRIVATE ${SDL2_LIBRARIES}
