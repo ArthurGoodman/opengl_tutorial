@@ -105,6 +105,8 @@ Shader::Shader(
 
     glValidateProgram(m_program);
     checkShaderError(m_program, GL_VALIDATE_STATUS, true, "invalid shader");
+
+    m_uniforms[MODEL_UNIFORM] = glGetUniformLocation(m_program, "model");
 }
 
 Shader::~Shader()
@@ -121,6 +123,12 @@ Shader::~Shader()
 void Shader::bind()
 {
     glUseProgram(m_program);
+}
+
+void Shader::update(const Transform &transform)
+{
+    glm::mat4 model = transform.getModel();
+    glUniformMatrix4fv(m_uniforms[MODEL_UNIFORM], 1, GL_FALSE, &model[0][0]);
 }
 
 } // namespace OpenGLTutorial

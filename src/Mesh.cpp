@@ -2,22 +2,6 @@
 
 namespace OpenGLTutorial {
 
-Vertex::Vertex(const glm::vec3 &pos, const glm::vec2 &tex_coord)
-    : m_pos{pos}
-    , m_tex_coord{tex_coord}
-{
-}
-
-glm::vec3 Vertex::getPos() const
-{
-    return m_pos;
-}
-
-glm::vec2 Vertex::getTexCoord() const
-{
-    return m_tex_coord;
-}
-
 Mesh::Mesh(const std::vector<Vertex> &vertices)
 {
     m_draw_count = static_cast<GLsizei>(vertices.size());
@@ -33,8 +17,8 @@ Mesh::Mesh(const std::vector<Vertex> &vertices)
 
     for (const auto &vertex : vertices)
     {
-        positions.push_back(vertex.getPos());
-        tex_coords.push_back(vertex.getTexCoord());
+        positions.push_back(vertex.pos);
+        tex_coords.push_back(vertex.tex_coord);
     }
 
     glGenBuffers(NUM_BUFFERS, m_vertex_array_buffers);

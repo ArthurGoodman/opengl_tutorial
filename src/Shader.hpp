@@ -3,6 +3,7 @@
 #include <cstddef>
 #include <string>
 #include <GL/glew.h>
+#include "Transform.hpp"
 
 namespace OpenGLTutorial {
 
@@ -20,11 +21,21 @@ public: // methods
 
     void bind();
 
+    void update(const Transform &transform);
+
 private: // fields
     static constexpr std::size_t NUM_SHADERS = 2;
 
+    enum
+    {
+        MODEL_UNIFORM,
+
+        NUM_UNIFORMS,
+    };
+
     GLuint m_program;
     GLuint m_shaders[NUM_SHADERS];
+    GLint m_uniforms[NUM_UNIFORMS];
 };
 
 } // namespace OpenGLTutorial

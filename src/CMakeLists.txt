@@ -6,11 +6,16 @@ add_executable(${OPENGL_APP}
     Mesh.cpp
     Shader.cpp
     Texture.cpp
+    Transform.cpp
     Utility.cpp
     )
 
 target_include_directories(${OPENGL_APP}
     PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}
+    )
+
+target_compile_definitions(${OPENGL_APP}
+    PRIVATE GLM_ENABLE_EXPERIMENTAL
     )
 
 target_link_libraries(${OPENGL_APP}

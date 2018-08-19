@@ -6,17 +6,10 @@
 
 namespace OpenGLTutorial {
 
-class Vertex final
+struct Vertex
 {
-public: // methods
-    explicit Vertex(const glm::vec3 &pos, const glm::vec2 &tex_coord);
-
-    glm::vec3 getPos() const;
-    glm::vec2 getTexCoord() const;
-
-private: // fields
-    glm::vec3 m_pos;
-    glm::vec2 m_tex_coord;
+    glm::vec3 pos;
+    glm::vec2 tex_coord;
 };
 
 class Mesh final
