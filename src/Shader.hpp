@@ -20,11 +20,11 @@ public: // methods
 
     void bind();
 
-public: // fields
-    static constexpr std::size_t c_num_shaders = 2;
+private: // fields
+    static constexpr std::size_t NUM_SHADERS = 2;
 
     GLuint m_program;
-    GLuint m_shaders[c_num_shaders];
+    GLuint m_shaders[NUM_SHADERS];
 };
 
 } // namespace OpenGLTutorial

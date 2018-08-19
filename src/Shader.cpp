@@ -92,7 +92,7 @@ Shader::Shader(
     m_shaders[1] =
         createShader(loadFile(fragment_shader_filename), GL_FRAGMENT_SHADER);
 
-    for (std::size_t i = 0; i < c_num_shaders; i++)
+    for (std::size_t i = 0; i < NUM_SHADERS; i++)
     {
         glAttachShader(m_program, m_shaders[i]);
     }
@@ -108,7 +108,7 @@ Shader::Shader(
 
 Shader::~Shader()
 {
-    for (std::size_t i = 0; i < c_num_shaders; i++)
+    for (std::size_t i = 0; i < NUM_SHADERS; i++)
     {
         glDetachShader(m_program, m_shaders[i]);
         glDeleteShader(m_shaders[i]);

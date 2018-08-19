@@ -3,6 +3,7 @@ set(OPENGL_APP opengl_app)
 add_executable(${OPENGL_APP}
     app.cpp
     Display.cpp
+    Mesh.cpp
     Shader.cpp
     Utility.cpp
     )
@@ -15,4 +16,5 @@ target_link_libraries(${OPENGL_APP}
     PRIVATE GLEW::GLEW
     PRIVATE OpenGL::GL
     PRIVATE ${SDL2_LIBRARIES}
+    PRIVATE glm
     )
