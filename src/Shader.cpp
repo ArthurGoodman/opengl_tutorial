@@ -99,6 +99,7 @@ Shader::Shader(
 
     glBindAttribLocation(m_program, 0, "position");
     glBindAttribLocation(m_program, 1, "tex_coord");
+    glBindAttribLocation(m_program, 2, "normal");
 
     glLinkProgram(m_program);
     checkShaderError(m_program, GL_LINK_STATUS, true, "shader linking failed");

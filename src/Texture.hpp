@@ -12,7 +12,7 @@ public: // methods
     explicit Texture(const std::string &filename);
     ~Texture();
 
-    void bind(std::uint32_t unit);
+    void bind(uint32_t unit);
 
 private: // fields
     GLuint m_texture;

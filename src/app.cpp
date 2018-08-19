@@ -19,17 +19,21 @@ int main(int /*argc*/, const char ** /*argv*/) try
 
     Shader shader{"./res/shader.vert", "./res/shader.frag"};
 
-    std::vector<Vertex> vertices{
-        Vertex{glm::vec3(-0.5f, -0.5f, 0.0f), glm::vec2(0.0f, 1.0f)},
-        Vertex{glm::vec3(0.0f, 0.5f, 0.0f), glm::vec2(0.5f, 0.0f)},
-        Vertex{glm::vec3(0.5f, -0.5f, 0.0f), glm::vec2(1.0f, 1.0f)},
-    };
+    // std::vector<Vertex> vertices{
+    //     Vertex{glm::vec3(-0.5f, -0.5f, 0.0f), glm::vec2(0.0f, 1.0f)},
+    //     Vertex{glm::vec3(0.0f, 0.5f, 0.0f), glm::vec2(0.5f, 0.0f)},
+    //     Vertex{glm::vec3(0.5f, -0.5f, 0.0f), glm::vec2(1.0f, 1.0f)},
+    // };
 
-    Mesh mesh{vertices};
+    // std::vector<uint32_t> indices{0, 1, 2};
+
+    // Mesh mesh{vertices, indices};
+    Mesh mesh{"./res/teapot.obj"};
 
     Texture texture{"./res/texture.jpg"};
 
     Transform transform;
+    transform.setScale(glm::vec3{0.075f});
 
     Camera camera{glm::vec3{0, 0, -3},
                   70.0f,

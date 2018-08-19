@@ -10,7 +10,7 @@ Texture::Texture(const std::string &filename)
 {
     int width, height, channels;
 
-    std::uint8_t *image_data =
+    uint8_t *image_data =
         stbi_load(filename.c_str(), &width, &height, &channels, 4);
 
     if (nullptr == image_data)
@@ -46,7 +46,7 @@ Texture::~Texture()
     glDeleteTextures(1, &m_texture);
 }
 
-void Texture::bind(std::uint32_t unit)
+void Texture::bind(uint32_t unit)
 {
     assert(unit < 32);
 

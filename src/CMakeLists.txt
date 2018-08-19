@@ -4,6 +4,7 @@ add_executable(${OPENGL_APP}
     app.cpp
     Display.cpp
     Mesh.cpp
+    obj_loader.cpp
     Shader.cpp
     Texture.cpp
     Utility.cpp
