@@ -3,6 +3,8 @@ set(OPENGL_APP opengl_app)
 add_executable(${OPENGL_APP}
     app.cpp
     Display.cpp
+    Shader.cpp
+    Utility.cpp
     )
 
 target_include_directories(${OPENGL_APP}
