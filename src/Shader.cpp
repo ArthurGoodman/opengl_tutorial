@@ -106,7 +106,7 @@ Shader::Shader(
     glValidateProgram(m_program);
     checkShaderError(m_program, GL_VALIDATE_STATUS, true, "invalid shader");
 
-    m_uniforms[MODEL_UNIFORM] = glGetUniformLocation(m_program, "model");
+    m_uniforms[MVP_UNIFORM] = glGetUniformLocation(m_program, "mvp");
 }
 
 Shader::~Shader()
@@ -125,10 +125,10 @@ void Shader::bind()
     glUseProgram(m_program);
 }
 
-void Shader::update(const Transform &transform)
+void Shader::update(const Transform &transform, const Camera &camera)
 {
-    glm::mat4 model = transform.getModel();
-    glUniformMatrix4fv(m_uniforms[MODEL_UNIFORM], 1, GL_FALSE, &model[0][0]);
+    glm::mat4 mvp = camera.getViewProjection() * transform.getModel();
+    glUniformMatrix4fv(m_uniforms[MVP_UNIFORM], 1, GL_FALSE, &mvp[0][0]);
 }
 
 } // namespace OpenGLTutorial

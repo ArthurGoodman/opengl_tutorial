@@ -1,5 +1,6 @@
 #include "Display.hpp"
 #include <iostream>
+#include <stdexcept>
 #include <GL/glew.h>
 
 namespace OpenGLTutorial {
@@ -10,7 +11,10 @@ Display::Display(
     const std::string &title)
     : m_closed{false}
 {
-    SDL_Init(SDL_INIT_EVERYTHING);
+    if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
+    {
+        throw std::runtime_error("SDL failed to initialize");
+    }
 
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
@@ -31,7 +35,7 @@ Display::Display(
 
     if (glewInit() != GLEW_OK)
     {
-        std::cerr << "GLEW failed to initialize!" << std::endl;
+        throw std::runtime_error("GLEW failed to initialize");
     }
 }
 

@@ -3,6 +3,7 @@
 #include <cstddef>
 #include <string>
 #include <GL/glew.h>
+#include "Camera.hpp"
 #include "Transform.hpp"
 
 namespace OpenGLTutorial {
@@ -21,14 +22,14 @@ public: // methods
 
     void bind();
 
-    void update(const Transform &transform);
+    void update(const Transform &transform, const Camera &camera);
 
 private: // fields
     static constexpr std::size_t NUM_SHADERS = 2;
 
     enum
     {
-        MODEL_UNIFORM,
+        MVP_UNIFORM,
 
         NUM_UNIFORMS,
     };
